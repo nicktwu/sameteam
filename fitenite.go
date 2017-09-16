@@ -2,6 +2,7 @@ package main;
 
 import "fmt";
 
-function main() {
-	fmt.Printf("lets go");
+func main() {
+	fmt.Printf("lets go\n");
+	fmt.Printf("git handle pull\n");
 }
