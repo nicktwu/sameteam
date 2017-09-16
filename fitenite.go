@@ -1,8 +1,9 @@
-package main;
+package main
 
-import "fmt";
+import "fmt"
 
 func main() {
-	fmt.Printf("lets go\n");
-	fmt.Printf("git handle pull\n");
+	fmt.Printf("lets go\n")
+	fmt.Printf("git handle pull\n")
+	fmt.Printf("Nick WOOOOOOOOOOOO")
 }
