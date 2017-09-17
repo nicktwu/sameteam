@@ -4,16 +4,16 @@
 import * as types from './types';
 import sessionApi from '../api/sessionApi';
 
-export function loginSuccess() {
-  return {type: types.LOG_IN_SUCCESS}
+export function loginSuccess(user) {
+  return {type: types.LOG_IN_SUCCESS, user: user}
 }
 
 export function loginFailure(message) {
   return {type: types.LOG_IN_FAILURE, message: message}
 }
 
-export function signupSuccess() {
-  return {type: types.SIGN_UP_SUCCESS}
+export function signupSuccess(user) {
+  return {type: types.SIGN_UP_SUCCESS, user: user}
 }
 
 export function signupFailure(message) {
@@ -25,7 +25,7 @@ export function loginUser(dispatch) {
     return sessionApi.login(credentials).then(res => {
       if (res.token) {
         sessionStorage.setItem('token', res.token);
-        dispatch(loginSuccess());
+        dispatch(loginSuccess(res.user));
       } else {
         sessionStorage.removeItem('token');
         dispatch(loginFailure("Login failed"));
@@ -44,7 +44,7 @@ export function signupUser(dispatch) {
     return sessionApi.signup(credentials).then(res => {
       if (res.token) {
         sessionStorage.setItem('token', res.token);
-        dispatch(signupSuccess());
+        dispatch(signupSuccess(res.user));
       } else {
         sessionStorage.removeItem('token');
         dispatch(signupFailure("Sign up failed"));
