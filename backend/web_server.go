@@ -28,6 +28,7 @@ func main() {
 	defer session.Close()
 
 	r.Use(middleware.WithDB(session))
+	r.POST("/register", routes.RegisterUser(key))
 	r.Use(middleware.WithValidation(key))
 
 	r.POST("/login", routes.GetLogin(key))
