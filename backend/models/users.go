@@ -20,5 +20,5 @@ type User struct {
 	PrefClean         int    // eg: 8 (1-10)
 	PrefWake          int    // eg: 1021 (0000-2400)
 	PrefBed           int    // eg: 0520 (0000-2400)
-	PrefSmoke         int    // eg: false
+	PrefSmoke         bool   // eg: false
 }
