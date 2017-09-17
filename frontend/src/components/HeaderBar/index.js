@@ -3,7 +3,6 @@
  */
 import React, {Component} from 'react';
 import './header.css'
-import {Link} from 'react-router-dom';
 
 export class HeaderBar extends Component {
 
@@ -12,7 +11,7 @@ export class HeaderBar extends Component {
       <div className="header-bar">
         <ul>
           {this.props.pages.map((page, index) => {
-            return <Link to={page.url} key={index}><li>{page.name}</li></Link>
+            return <li key={index}>{page.name}</li>
           })}
         </ul>
       </div>
