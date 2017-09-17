@@ -2,7 +2,7 @@
  * Created by nwu on 9/17/17.
  */
 import React, {Component} from 'react';
-import {Button, Panel, Form, FormGroup, FormControl, Col, ControlLabel} from 'react-bootstrap';
+import {Alert, Button, Panel, Form, FormGroup, FormControl, Col, ControlLabel} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import * as sessionActions from '../../session/actions';
 import {Redirect} from 'react-router-dom';
@@ -25,6 +25,9 @@ class SignupComponent extends Component {
 
 
   render() {
+    if (this.props.token && this.props.token.length > 0) {
+      return <Redirect to="/profile"/>
+    }
     if (sessionActions.isAuth()) {
       return <Redirect to="/profile"/>
     }
@@ -32,6 +35,7 @@ class SignupComponent extends Component {
       <div className="panel-container">
         <Panel>
           <h1>Sign up!</h1>
+          { this.props.error ? <Alert bsStyle="danger">{this.props.error}</Alert> : null }
           <br/>
           <Form horizontal onSubmit={this.handleSubmit}>
             <FormGroup controlId="username">
@@ -64,10 +68,17 @@ class SignupComponent extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    token: state.session.token,
+    error: state.session.error,
+  }
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     signup: sessionActions.signupUser(dispatch)
   }
 }
 
-export default connect(null, mapDispatchToProps)(SignupComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(SignupComponent);

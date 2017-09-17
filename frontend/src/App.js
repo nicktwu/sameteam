@@ -7,12 +7,9 @@ import pageList from './pages';
 import {Fade} from './transitions/Fade';
 import backgroundPicture from './roommate.jpg'
 import {Switch} from "react-router-dom";
-import {isAuth} from "./session/actions";
 
 class App extends Component {
   render() {
-    let auth = isAuth();
-    console.log(auth);
     return (
       <BrowserRouter>
         <div className="App">

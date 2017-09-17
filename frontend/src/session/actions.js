@@ -8,27 +8,32 @@ export function loginSuccess() {
   return {type: types.LOG_IN_SUCCESS}
 }
 
-export function loginFailure() {
-  return {type: types.LOG_IN_FAILURE}
+export function loginFailure(message) {
+  return {type: types.LOG_IN_FAILURE, message: message}
 }
 
 export function signupSuccess() {
   return {type: types.SIGN_UP_SUCCESS}
 }
 
-export function signupFailure() {
-  return {type: types.SIGN_UP_FAILURE}
+export function signupFailure(message) {
+  return {type: types.SIGN_UP_FAILURE, message: message}
 }
 
 export function loginUser(dispatch) {
   return function(credentials) {
     return sessionApi.login(credentials).then(res => {
-      sessionStorage.setItem('token', res.token);
-      dispatch(loginSuccess());
+      if (res.token) {
+        sessionStorage.setItem('token', res.token);
+        dispatch(loginSuccess());
+      } else {
+        sessionStorage.removeItem('token');
+        dispatch(loginFailure("Login failed"));
+      }
     }).catch(error => {
       console.log(error);
       sessionStorage.removeItem('token');
-      dispatch(loginFailure());
+      dispatch(loginFailure(error.toString()));
       throw(error);
     })
   }
@@ -37,12 +42,17 @@ export function loginUser(dispatch) {
 export function signupUser(dispatch) {
   return function(credentials) {
     return sessionApi.signup(credentials).then(res => {
-      sessionStorage.setItem('token', res.token);
-      dispatch(signupSuccess());
+      if (res.token) {
+        sessionStorage.setItem('token', res.token);
+        dispatch(signupSuccess());
+      } else {
+        sessionStorage.removeItem('token');
+        dispatch(signupFailure("Sign up failed"));
+      }
     }).catch(error => {
       console.log(error);
       sessionStorage.removeItem('token');
-      dispatch(signupFailure());
+      dispatch(signupFailure(error.toString()));
       throw(error);
     })
   }
@@ -54,7 +64,6 @@ export function logoutUser(dispatch) {
 
 export function isAuth() {
   let token = sessionStorage.getItem('token');
-  console.log(token);
   if (token) {
     return token.length > 0
   } else {
