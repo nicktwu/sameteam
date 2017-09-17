@@ -1,5 +1,25 @@
 .header-bar ul {
     list-style: none;
+    size: 100vw;
+    margin: 0px;
+    padding: 0px;
+    top: 0;
+    width: 100%;
+    left: 150px;
+    background-color: #e8e85b;
+    position: fixed;
+    
+}
+			li {
+	float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 16px 20px;
+    background-color: #e8e85b;
+}
+			li:hover {
+	background-color: #3a3030;
 }
 
 .header-bar {
@@ -8,6 +28,8 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 70px;
-    background-color: red;
+    height: 50px;
+    background-color: #e8e85b;
+    z-index: 9001;
+    opacity: .8;
 }

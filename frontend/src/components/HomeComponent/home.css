@@ -1,0 +1,36 @@
+.home-background {
+	position: absolute;
+	width: 100vw;
+	height: calc(100vh);
+	margin-top: -50px;
+	z-index: 100;
+	-webkit-filter: brightness(40%);
+    -moz-filter: brightness(40%);
+    -o-filter: brightness(40%);
+    -ms-filter: brightness(40%);
+    filter: brightness(40%);
+}
+
+.home-content {
+	position: absolute;
+	width: 100vw;
+	height: calc(100vh);
+	margin-top: -50px;
+	z-index: 101;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.home-content div{
+	-webkit-filter: brightness(100%);
+    -moz-filter: brightness(100%);
+    -o-filter: brightness(100%);
+    -ms-filter: brightness(100%);
+    filter: brightness(100%);
+	z-index: 11;
+	padding: 0;
+	margin: 0;
+	color: white;
+}
+

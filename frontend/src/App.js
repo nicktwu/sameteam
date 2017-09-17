@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
+        <div className="App">
           <HeaderBar pages={pageList}/>
           <div className="main-content">
           { pageList.map((page, index) => {

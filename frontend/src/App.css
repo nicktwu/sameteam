@@ -1,9 +1,9 @@
 .main-content {
-  padding-top: 70px;
+  padding-top: 50px;
 }
 
 .App {
-  text-align: center;
+  font-family: 'Merriweather Sans', sans-serif;
 }
 
 .App-logo {
