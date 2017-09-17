@@ -36,10 +36,7 @@ func main() {
 	api.Use(middleware.WithValidation(key))
 
 	api.GET("/ping", routes.Home)
-	api.GET("/user/:name", func(c *gin.Context) {
-		name := c.Param("name")
-		c.String(http.StatusOK, "Hello %s", name)
-	})
+	api.GET("/user/:username", routes.ShowUserResults)
 	api.POST("/upload", func(c *gin.Context) {
 		file, _ := c.FormFile("file")
 		log.Println(file.Filename)
