@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {HeaderBar} from './components/HeaderBar/index';
 import './App.css';
+import {BrowserRouter, Route} from 'react-router-dom';
+import pageList from './pages';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <BrowserRouter>
+        <div>
+          <HeaderBar pages={pageList}/>
+          { pageList.map((page, index) => {
+            if (page.exact) {
+              return <Route exact path={page.url} component={page.comp}/>
+            } else {
+              return <Route path={page.url} component={page.comp}/>
+            }
+          })}
+
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      </BrowserRouter>
     );
   }
 }
