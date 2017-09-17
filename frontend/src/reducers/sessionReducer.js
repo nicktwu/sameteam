@@ -14,6 +14,8 @@ export default function sessionReducer(state = initialState, action) {
       return {token: sessionStorage.getItem("token"), error: "", user: action.user};
     case types.SIGN_UP_FAILURE:
       return {token: "", error: action.message, user: null};
+    case types.LOG_OUT:
+      return {token: "", error: "", user: null};
     default:
       return state;
   }

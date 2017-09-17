@@ -20,6 +20,10 @@ export function signupFailure(message) {
   return {type: types.SIGN_UP_FAILURE, message: message}
 }
 
+export function logout() {
+  return {type: types.LOG_OUT}
+}
+
 export function loginUser(dispatch) {
   return function(credentials) {
     return sessionApi.login(credentials).then(res => {
@@ -59,7 +63,10 @@ export function signupUser(dispatch) {
 }
 
 export function logoutUser(dispatch) {
-  return () => {sessionStorage.removeItem("token");}
+  return function () {
+    sessionStorage.removeItem("token");
+    dispatch(logout())
+  }
 }
 
 export function isAuth() {

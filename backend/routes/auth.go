@@ -61,7 +61,7 @@ func GetLogin(key []byte) func(c *gin.Context) {
 			return
 		}
 
-		c.JSON(http.StatusAccepted, gin.H{"token": token})
+		c.JSON(http.StatusAccepted, gin.H{"token": token, "user": dbUser})
 	}
 }
 
@@ -127,6 +127,6 @@ func RegisterUser(key []byte) func(c *gin.Context) {
 			return
 		}
 
-		c.JSON(http.StatusAccepted, gin.H{"token": token})
+		c.JSON(http.StatusAccepted, gin.H{"token": token, "user": user})
 	}
 }
