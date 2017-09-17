@@ -1,0 +1,13 @@
+.header-bar ul {
+    list-style: none;
+}
+
+.header-bar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 70px;
+    background-color: red;
+}
