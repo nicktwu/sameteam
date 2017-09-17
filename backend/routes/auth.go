@@ -78,7 +78,7 @@ func RegisterUser(key []byte) func(c *gin.Context) {
 				c.AbortWithStatus(http.StatusUnavailableForLegalReasons) // copyright Nick Wu
 			}
 
-			passw :r= string(user.Password[:n])
+			passw := string(user.Password)
 			if len(passw) < 8 {
 				c.AbortWithStatus(http.StatusUpgradeRequired) // upgrade to longer password
 			}
