@@ -13,6 +13,7 @@ export default class HomeComponent extends Component {
         <div className="home-content">
       	  <div>
       	    <h1>Find Your Perfect Roommate</h1>
+              <h2>Moving into a new apartment or dorm? Want a dank ass roommate? We got you covered!</h2>
       	    <Link to="/signup"><Button>Start Your Matching Process</Button></Link>
       	  </div>
         </div>

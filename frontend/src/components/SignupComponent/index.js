@@ -13,6 +13,7 @@ class SignupComponent extends Component {
     this.state = {
       username: "",
       password: "",
+      name: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -51,6 +52,14 @@ class SignupComponent extends Component {
               </Col>
               <Col sm={9}>
                 <FormControl type="password" onChange={event=>this.setState({"password":event.target.value})} value={this.state.password} placeholder="Password"/>
+              </Col>
+            </FormGroup>
+            <FormGroup controlId="name">
+              <Col componentClass={ControlLabel} sm={3}>
+                Full Name
+              </Col>
+              <Col sm={9}>
+                <FormControl type="text" onChange={event=>this.setState({"name":event.target.value})} value={this.state.name} placeholder="Full Name"/>
               </Col>
             </FormGroup>
             <FormGroup>
