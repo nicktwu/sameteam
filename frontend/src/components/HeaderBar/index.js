@@ -11,7 +11,7 @@ export class HeaderBar extends Component {
       <div className="header-bar">
         <ul>
           {this.props.pages.map((page, index) => {
-            return <li>{page.name}</li>
+            return <li key={index}>{page.name}</li>
           })}
         </ul>
       </div>

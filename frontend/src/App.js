@@ -10,13 +10,15 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <HeaderBar pages={pageList}/>
+          <div className="main-content">
           { pageList.map((page, index) => {
             if (page.exact) {
-              return <Route exact path={page.url} component={page.comp}/>
+              return <Route exact key={index} path={page.url} component={page.comp}/>
             } else {
-              return <Route path={page.url} component={page.comp}/>
+              return <Route key={index} path={page.url} component={page.comp}/>
             }
           })}
+          </div>
 
         </div>
       </BrowserRouter>
