@@ -29,9 +29,9 @@ func main() {
 
 	r.Use(middleware.WithDB(session))
 	r.POST("/register", routes.RegisterUser(key))
+	r.POST("/login", routes.GetLogin(key))
 	r.Use(middleware.WithValidation(key))
 
-	r.POST("/login", routes.GetLogin(key))
 	r.GET("/ping", routes.Home)
 	r.GET("/user/:name", func(c *gin.Context) {
 		name := c.Param("name")
