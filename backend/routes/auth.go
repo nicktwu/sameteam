@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/nicktwu/sameteam/backend/db"
 	"github.com/nicktwu/sameteam/backend/middleware"
@@ -72,6 +73,18 @@ func RegisterUser(key []byte) func(c *gin.Context) {
 			c.AbortWithStatus(http.StatusUnauthorized)
 		} else {
 			err := db.InsertUser(s, user)
+
+			if user.Username == "" {
+				c.AbortWithStatus(http.StatusUnavailableForLegalReasons) // copyright Nick Wu
+			}
+
+			passw :r= string(user.Password[:n])
+			if len(passw) < 8 {
+				c.AbortWithStatus(http.StatusUpgradeRequired) // upgrade to longer password
+			}
+			if passw == "12345678" {
+				fmt.Fprintln("fuk u")
+			}
 
 			if err != nil {
 				c.AbortWithStatus(http.StatusInternalServerError)
