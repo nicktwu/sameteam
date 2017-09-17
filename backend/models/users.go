@@ -7,7 +7,7 @@ type User struct {
 	// Account Info
 	Username     string `json:"username" bson:"username"` // eg: nicktwu
 	Password     string `json:"password" bson:"-"`        // eg: ********
-	PasswordHash []byte `json:"hash" bson:"hash"`         // eg: 1b82yhr!o&AS1dia
+	PasswordHash []byte `json:"-" bson:"hash"`            // eg: 1b82yhr!o&AS1dia
 	Available    bool   `json:"avail" bson:"avail"`       // eg: true
 	// Basic Biographical Info
 	Name              string `json:"name" bson:"name"`           // eg: "Nick WooOOOooo'

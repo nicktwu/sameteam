@@ -30,7 +30,7 @@ func GetToken(username string, key []byte) (string, error) {
 
 func WithValidation(key []byte) func(c *gin.Context) {
 	return func(c *gin.Context) {
-		header := c.GetHeader("Authentication")
+		header := c.GetHeader("Authorization")
 		if !strings.HasPrefix(header, "Bearer ") {
 			c.AbortWithStatus(http.StatusUnauthorized)
 		}

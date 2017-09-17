@@ -72,6 +72,7 @@ export function logoutUser(dispatch) {
 export function isAuth() {
   let token = sessionStorage.getItem('token');
   if (token) {
+    console.log(token);
     return token.length > 0
   } else {
     return false;

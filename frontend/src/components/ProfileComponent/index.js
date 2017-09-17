@@ -4,9 +4,14 @@
 import React, {Component} from 'react';
 import {Panel} from 'react-bootstrap';
 import {connect} from 'react-redux';
+import * as sessionActions from '../../session/actions'
+import {Redirect} from 'react-router-dom';
 
 class ProfileComponent extends Component {
   render() {
+    if (!sessionActions.isAuth()) {
+      return <Redirect to="/"/>
+    }
     return (
       <div className="panel-container">
         <Panel>

@@ -20,30 +20,27 @@ func ShowUserResults(c *gin.Context) {
 		return
 	}
 	// Check if the user exists
-	if isUser, err := db.CheckUserExists(s, c.Param("username")); isUser && err == nil {
+	isUser, err := db.CheckUserExists(s, c.Param("username"))
+	if err != nil {
+		c.AbortWithStatus(http.StatusInternalServerError)
+		return
+	}
 
-		// Get user profile
-		if user, err := db.GetUser(s, c.Param("username")); err == nil {
-			c.HTML(
-				// Set the HTTP status to 200 (OK)
-				http.StatusOK,
-				// Use the index.html template
-				"results.html",
-				// Pass the data that the page uses
-				gin.H{
-					"name":    user.Name,
-					"payload": user,
-				},
-			)
-
-		} else {
-			// If the user is not found, abort with an error
-			c.AbortWithError(http.StatusNotFound, err)
-		}
-
-	} else {
-		// If an invalid username is specified in the URL, abort with an error
+	if !isUser {
 		c.AbortWithStatus(http.StatusNotFound)
+	}
+
+	// Get user profile
+	if user, err := db.GetUser(s, c.Param("username")); err == nil {
+		c.JSON(
+			// Set the HTTP status to 200 (OK)
+			http.StatusOK,
+			// Pass the data that the page uses
+			user,
+		)
+	} else {
+		// If the user is not found, abort with an error
+		c.AbortWithError(http.StatusNotFound, err)
 	}
 
 }
