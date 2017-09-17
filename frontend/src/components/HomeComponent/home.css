@@ -1,15 +1,4 @@
-.home-background {
-	position: absolute;
-	width: 100vw;
-	height: calc(100vh);
-	margin-top: -50px;
-	z-index: 100;
-	-webkit-filter: brightness(35%);
-    -moz-filter: brightness(35%);
-    -o-filter: brightness(35%);
-    -ms-filter: brightness(35%);
-    filter: brightness(35%);
-}
+
 
 .home-content {
 	position: absolute;
@@ -41,17 +30,17 @@
 	font-weight: bold;
 }
 
-.home-content h2 {
+.home-content button {
 	font-weight: normal;
 	display: inline-block;
 	background-color: #e8e85b;
-	opacity: .8;
+	opacity: .8 !important;
 	padding: 10px 20px;
 	color: black;
-	transition: background-color 0.5s ease, color 0.5s ease; 
+	transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-.home-content h2:hover {
+.home-content button:hover {
 	background-color: #3a3030;
 	opacity: .8;
 	color: white;

@@ -4,8 +4,9 @@ const Male, Female, Nonbin = 0, 1, 2
 const None, Dog, Cat, Other_sm, Other_lg, Many = 0, 1, 2, 3, 4, 5
 
 type User struct {
-	Username          string `json:"username" bson:"username"`   // eg: nicktwu
-	Password          []byte `json:"password" bson:"password"`   // eg: 1b82yhr!o&AS1dia
+	Username          string `json:"username" bson:"username"` // eg: nicktwu
+	Password          string `json:"password" bson:"-"`        // eg: 1b82yhr!o&AS1dia
+	PasswordHash      []byte `json:"hash" bson:"hash"`
 	Name              string `json:"name" bson:"name"`           // eg: "Nick WooOOOooo'
 	Phone             string `json:"phone" bson:"phone"`         // eg: 123-456-7890
 	Email             string `json:"email" bson:"email"`         // eg: "nwu@email.com"

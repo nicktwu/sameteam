@@ -1,0 +1,23 @@
+.panel-container {
+    position: absolute;
+    width: 100vw;
+    height: 70vh;
+    margin-top: -50px;
+    z-index: 101;
+    display: flex;
+    justify-content: center;
+}
+
+.panel {
+    min-height: 70vh;
+    width: 70vw;
+    display: block;
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.panel p {
+    font-family: 'Roboto', sans-serif;
+}

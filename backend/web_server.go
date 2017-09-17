@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/nicktwu/sameteam/backend/middleware"
 	"github.com/nicktwu/sameteam/backend/routes"
+	"github.com/northbright/keygen"
 	"gopkg.in/mgo.v2"
 	"log"
 	"net/http"
-
-	"github.com/northbright/keygen"
 )
 
 func main() {
@@ -27,17 +27,20 @@ func main() {
 	}
 	defer session.Close()
 
+	r.Use(cors.Default())
 	r.Use(middleware.WithDB(session))
 	r.POST("/register", routes.RegisterUser(key))
 	r.POST("/login", routes.GetLogin(key))
-	r.Use(middleware.WithValidation(key))
 
-	r.GET("/ping", routes.Home)
-	r.GET("/user/:name", func(c *gin.Context) {
+	api := r.Group("/api")
+	api.Use(middleware.WithValidation(key))
+
+	api.GET("/ping", routes.Home)
+	api.GET("/user/:name", func(c *gin.Context) {
 		name := c.Param("name")
 		c.String(http.StatusOK, "Hello %s", name)
 	})
-	r.POST("/upload", func(c *gin.Context) {
+	api.POST("/upload", func(c *gin.Context) {
 		file, _ := c.FormFile("file")
 		log.Println(file.Filename)
 

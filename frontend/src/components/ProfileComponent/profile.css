@@ -1,0 +1,9 @@
+.panel-container {
+    position: absolute;
+    width: 100vw;
+    height: 70vh;
+    margin-top: -50px;
+    z-index: 101;
+    display: flex;
+    justify-content: center;
+}

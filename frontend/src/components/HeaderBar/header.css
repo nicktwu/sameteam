@@ -1,39 +1,73 @@
-.header-bar ul {
-    list-style: none;
-    size: 100vw;
-    margin: 0px;
-    padding: 0px;
-    top: 0;
-    width: 100%;
-    left: 150px;
-    background-color: #e8e85b;
-    position: fixed;
-    
+.navbar {
+    z-index: 1000;
+    opacity: 0.8 !important;
+    border: none !important;
+    border-radius: 0;
 }
 
-li {
-	float: left;
-    display: block;
+/*
+.navbar {
+    margin-bottom: 0;
+    height: 50px;
+    background-color: #e8e85b;
+    border: none;
+    border-radius: 0;
+    opacity: 0.8 !important;
+    z-index: 1000;
+}
+
+.navbar-default .navbar-header span {
     color: black;
-    text-align: center;
-    padding: 15px 20px;
+}
+
+.navbar-default .navbar-nav .active a {
+    color: black;
     background-color: #e8e85b;
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-li:hover {
-    color: white;
-	background-color: #3a3030;
+.navbar-default .navbar-nav .active a:focus {
+    color: black;
+    background-color: #e8e85b;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-.header-bar {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 50px;
-    background-color: #e8e85b;
-    z-index: 9001;
-    opacity: .8;
+.navbar-default .navbar-nav .active a:hover {
+    color: white;
+    background-color: #3a3030;
 }
+
+.navbar-default .navbar-nav li a {
+    color: black;
+    background-color: #e8e85b;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.navbar-default .navbar-nav li a:focus {
+    color: black;
+    background-color: #e8e85b;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.navbar-default .navbar-nav li a:hover, a:focus {
+    color: white;
+    background-color: #3a3030;
+}
+
+.navbar-toggle.collapsed .icon-bar {
+    color: black;
+}
+
+.navbar-default .navbar-header button {
+    background-color: #e8e85b;
+    border-color: black;
+}
+
+.navbar-default .navbar-collapse {
+    border: none !important;
+}
+
+div.navbar-collapse ul.nav {
+    margin-top: 0;
+    margin-bottom: 0;
+} */

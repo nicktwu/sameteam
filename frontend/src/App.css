@@ -1,28 +1,31 @@
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
+}
+
 .main-content {
   padding-top: 50px;
 }
 
+.background {
+  position: fixed;
+  width: 100vw;
+  height: calc(100vh);
+  top: 0;
+  z-index: 100;
+  -webkit-filter: brightness(35%);
+  -moz-filter: brightness(35%);
+  -o-filter: brightness(35%);
+  -ms-filter: brightness(35%);
+  filter: brightness(35%);
+}
+
+
 .App {
   font-family: 'Merriweather Sans', sans-serif;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }

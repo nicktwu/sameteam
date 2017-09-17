@@ -17,3 +17,9 @@ func CheckUserExists(s *mgo.Session, username string) (bool, error) {
 func InsertUser(s *mgo.Session, user models.User) error {
 	return s.DB(DB_NAME).C(USER_COLLECTION).Insert(user)
 }
+
+func GetUser(s *mgo.Session, username string) (*models.User, error) {
+	var user models.User
+	err := s.DB(DB_NAME).C(USER_COLLECTION).Find(bson.M{"username": username}).One(&user)
+	return &user, err
+}
