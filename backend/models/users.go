@@ -33,7 +33,3 @@ type User struct {
 	PrefBed   int  `json:"prefbed" bson:"prefbed"`     // eg: 0520 (0000-2400)
 	PrefSmoke bool `json:"prefsmoke" bson:"prefsmoke"` // eg: false
 }
-
-func getUserByUsername(username string) (*User, error) {
-
-}
